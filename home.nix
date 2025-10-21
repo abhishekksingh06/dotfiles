@@ -34,6 +34,8 @@
     waybar
     brave
     gh
+    zellij
+    nix-your-shell
   ];
 
   home.file = {};
