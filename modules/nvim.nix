@@ -82,6 +82,15 @@
           desc = "Move to right window";
           silent = true;
         }
+
+        # lazygit
+        {
+          key = "<leader>gg";
+          mode = "n";
+          action = "<cmd>lua require('toggleterm.terminal').Terminal:new({ cmd = 'lazygit', hidden = true }):toggle()<CR>";
+          desc = "Toggle LazyGit terminal";
+          silent = true;
+        }
       ];
 
       lsp = {
