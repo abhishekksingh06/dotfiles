@@ -1,0 +1,47 @@
+{
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./modules/fish.nix
+    ./modules/ghostty.nix
+    ./modules/nvim.nix
+    ./modules/hyprland.nix
+  ];
+
+  home.username = "abhishek-kumar-singh";
+  home.homeDirectory = "/home/abhishek-kumar-singh";
+  home.stateVersion = "24.11";
+
+  home.packages = with pkgs; [
+    ueberzug
+    fastfetch
+    git
+    neovim
+    networkmanagerapplet
+    clang
+    fish
+    nodejs
+    wl-clipboard
+    ghostty
+    unzip
+    eza
+    bat
+    fzf
+    fd
+    zoxide
+    waybar
+    brave
+    gh
+  ];
+
+  home.file = {};
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
+  programs.dankMaterialShell.enable = true;
+  programs.home-manager.enable = true;
+}
