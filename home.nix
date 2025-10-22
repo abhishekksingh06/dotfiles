@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./modules/fish.nix
     ./modules/ghostty.nix
@@ -37,12 +38,18 @@
     zellij
     direnv
     spotify
+    nil
+    lua-language-server
+    nixfmt-rfc-style
+    statix
+    tree-sitter
+    lazygit
   ];
 
   home.file = {
-   ".config/nvim" = {
-      source = ./nvim-config;   
-      recursive = true; 
+    ".config/nvim" = {
+      source = ./nvim-config;
+      recursive = true;
     };
   };
 
