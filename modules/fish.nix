@@ -12,11 +12,6 @@
 
     interactiveShellInit = ''
       set fish_greeting
-
-      # Integrate nix-your-shell
-      if type -q nix-your-shell
-        nix-your-shell fish | source
-       end
     '';
 
     shellInit = ''

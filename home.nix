@@ -8,6 +8,7 @@
     ./modules/ghostty.nix
     ./modules/nvim.nix
     ./modules/hyprland.nix
+    ./modules/direnv.nix
   ];
 
   home.username = "abhishek-kumar-singh";
@@ -35,7 +36,7 @@
     brave
     gh
     zellij
-    nix-your-shell
+    direnv
   ];
 
   home.file = {};
