@@ -6,7 +6,6 @@
   imports = [
     ./modules/fish.nix
     ./modules/ghostty.nix
-    ./modules/nvim.nix
     ./modules/hyprland.nix
     ./modules/direnv.nix
   ];
@@ -37,9 +36,15 @@
     gh
     zellij
     direnv
+    spotify
   ];
 
-  home.file = {};
+  home.file = {
+   ".config/nvim" = {
+      source = ./nvim;   
+      recursive = true; 
+    };
+  };
 
   home.sessionVariables = {
     EDITOR = "nvim";

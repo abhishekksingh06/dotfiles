@@ -45,7 +45,7 @@
 
       # Decoration settings
       decoration = {
-        rounding = 8;
+        rounding = 4;
         rounding_power = 2;
         active_opacity = 0.97;
         inactive_opacity = 0.93;

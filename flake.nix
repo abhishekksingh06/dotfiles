@@ -9,10 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvf = {
-      url = "github:NotAShelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.url = "github:nix-community/nixvim";
 
     dgop = {
       url = "github:AvengeMedia/dgop";
@@ -30,24 +27,28 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf, dankMaterialShell, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    in {
-      homeConfigurations."abhishek-kumar-singh" =
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-          modules = [
-            ./home.nix
-            nvf.homeManagerModules.default
-            dankMaterialShell.homeModules.dankMaterialShell.default
-          ];
-        };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    dankMaterialShell,
+    nixvim,
+    ...
+  }: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
     };
-}
+  in {
+    homeConfigurations."abhishek-kumar-singh" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
 
+      modules = [
+        ./home.nix
+        dankMaterialShell.homeModules.dankMaterialShell.default
+	nixvim.homeManagerModules.nixvim
+      ];
+    };
+  };
+}
